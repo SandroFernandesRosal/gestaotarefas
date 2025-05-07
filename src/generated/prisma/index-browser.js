@@ -130,6 +130,16 @@ exports.Prisma.UserAdminScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.UserMemberScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  name: 'name',
+  token: 'token',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.TaskScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -158,6 +168,14 @@ exports.Prisma.UserAdminOrderByRelevanceFieldEnum = {
   token: 'token'
 };
 
+exports.Prisma.UserMemberOrderByRelevanceFieldEnum = {
+  id: 'id',
+  email: 'email',
+  password: 'password',
+  name: 'name',
+  token: 'token'
+};
+
 exports.Prisma.TaskOrderByRelevanceFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -172,6 +190,7 @@ exports.TaskStatus = exports.$Enums.TaskStatus = {
 
 exports.Prisma.ModelName = {
   UserAdmin: 'UserAdmin',
+  UserMember: 'UserMember',
   Task: 'Task'
 };
 

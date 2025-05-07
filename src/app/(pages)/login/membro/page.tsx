@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Cookie from 'js-cookie';
 
 const MemberLogin = () => {
   const [email, setEmail] = useState('');
@@ -11,12 +12,34 @@ const MemberLogin = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Lógica de autenticação (exemplo simples)
-    if (email === 'membro@exemplo.com' && password === 'membro123') {
-      // Redireciona para a página do dashboard do membro
-      router.push('/');
-    } else {
-      setError('Credenciais inválidas.');
+    try {
+      // Envia as credenciais para a API de autenticação
+      const response = await fetch('/api/auth/login/membro', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Armazena o token no cookie se a autenticação for bem-sucedida
+        const token = data.token;
+        Cookie.set('tokenmembro', token, { expires: 1, path: '/' }); // Armazenando o token por 1 dia
+
+        // Redireciona para a página inicial (ou outro dashboard)
+        router.push('/');
+      } else {
+        setError(data.error || 'Credenciais inválidas');
+      }
+    } catch (err) {
+      console.error(err);
+      setError('Erro ao tentar fazer login. Tente novamente.');
     }
   };
 
