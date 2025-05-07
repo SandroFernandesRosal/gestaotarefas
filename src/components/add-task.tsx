@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
 import Cookie from 'js-cookie';
+import { useRouter } from 'next/navigation'
 
 const AddTask = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // Controla a abertura do modal
@@ -10,6 +11,7 @@ const AddTask = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const token = Cookie.get('token'); // Pega o token do cookie
+  const router = useRouter()
 
   // Função para abrir o modal
   const openModal = () => {
@@ -49,6 +51,8 @@ const AddTask = () => {
 
       if (response.ok) {
         setSuccess('Tarefa criada com sucesso!');
+        router.push('/')
+        window.location.href = '/'
         
         closeModal(); // Fecha o modal após sucesso
       } else {
