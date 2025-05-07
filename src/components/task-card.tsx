@@ -2,6 +2,7 @@
 import React from 'react';
 import EditTask from './edit-task';
 import DeleteTask from './delete-task';
+import Cookie from 'js-cookie';
 
 interface TaskCardProps {
   title: string;
@@ -11,6 +12,7 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ title, description, status, id }) => {
+  const token = Cookie.get('token');
   const statusColor = {
     PENDING: 'bg-yellow-200',
     IN_PROGRESS: 'bg-blue-300',
@@ -26,7 +28,10 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, description, status, id }) =
           {status.charAt(0).toUpperCase() + status.slice(1)}
         </span>
       </div>
-      <div className='flex justify-center gap-4 pt-3'><EditTask taskId={id} currentDescription={description} currentTitle={title} currentStatus={status}/> <DeleteTask id={id}/></div>
+      {token && 
+      <div className='flex justify-center gap-4 pt-3'>
+        <EditTask taskId={id} currentDescription={description} currentTitle={title} currentStatus={status}/> <DeleteTask id={id}/>
+      </div>}
       
     </div>
   );
