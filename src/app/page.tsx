@@ -37,33 +37,33 @@ const Home = () => {
   const filteredTasks = filter === 'all' ? tasks : tasks.filter((task) => task.status === filter);
 
   return (
-    <div className="min-h-screen bg-gray-200 py-8 px-4 text-black">
+    <div className="min-h-screen bg-zinc-300 py-8 px-4 text-black">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-semibold text-center mb-6">Gestão de tarefas</h1>
 
       {token && <AddTask />}
         
-        <div className="mb-4 text-center">
+        <div className="mb-4 text-center flex flex-wrap justify-center gap-3">
           <button
-            className="bg-gray-200 px-4 py-2 mx-2 rounded-full"
+            className="bg-white px-4 py-2  rounded-full cursor-pointer border-[1px] border-zinc-400"
             onClick={() => setFilter('all')}
           >
             All
           </button>
           <button
-            className="bg-yellow-200 px-4 py-2 mx-2 rounded-full"
+            className="bg-yellow-200 px-4 py-2  rounded-full cursor-pointer border-[1px] border-zinc-400"
             onClick={() => setFilter('PENDING')}
           >
             Pending
           </button>
           <button
-            className="bg-blue-200 px-4 py-2 mx-2 rounded-full"
+            className="bg-blue-200 px-4 py-2  rounded-full cursor-pointer border-[1px] border-zinc-400"
             onClick={() => setFilter('IN_PROGRESS')}
           >
             In Progress
           </button>
           <button
-            className="bg-green-200 px-4 py-2 mx-2 rounded-full"
+            className="bg-green-200 px-4 py-2  rounded-full cursor-pointer border-[1px] border-zinc-400"
             onClick={() => setFilter('COMPLETED')}
           >
             Completed

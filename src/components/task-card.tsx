@@ -21,8 +21,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, description, status, id }) =
     <div className={`bg-white text-black p-4 rounded-lg shadow-md bg-${statusColor[status]}`}>
       <h3 className="text-lg font-semibold">{title}</h3>
       <p className="text-sm text-gray-600">{description}</p>
-      <div className="mt-2">
-        <span className={`inline-block  px-3 py-1 text-sm font-semibold rounded-full ${statusColor[status]}`}>
+      <div className="mt-2 flex items-center justify-center">
+        <span className={`  border-[1px] border-zinc-400  px-3 py-1 text-sm font-semibold rounded-full ${statusColor[status]}`}>
           {status.charAt(0).toUpperCase() + status.slice(1)}
         </span>
       </div>
