@@ -58,7 +58,7 @@ const EditTask = ({ taskId, currentTitle, currentDescription, currentStatus }: E
 
   return (
     <div>
-      <button onClick={openModal} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 font-bold">Editar</button>
+      <button onClick={openModal} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 font-bold cursor-pointer">Editar</button>
       {isModalOpen && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50 px-5">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
