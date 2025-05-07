@@ -18,7 +18,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ title, description, status, id }) =
   };
 
   return (
-    <div className={`bg-white text-black p-4 rounded-lg shadow-md ${statusColor[status]}`}>
+    <div className={`bg-white text-black p-4 rounded-lg shadow-md bg-${statusColor[status]}`}>
       <h3 className="text-lg font-semibold">{title}</h3>
       <p className="text-sm text-gray-600">{description}</p>
       <div className="mt-2">
